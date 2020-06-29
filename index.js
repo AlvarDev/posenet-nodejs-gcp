@@ -109,9 +109,10 @@ app.use((err, req, res, next) => {
   res.status(500).send({message: "Something went wrong"})
 })
 
-app.listen(8080, () => {
-  console.log(`App listening on port 8080`);
-  console.log('Press Ctrl+C to quit.');
-});
+exports.app = app;
 
-// exports.app = app;
+// For localhost test
+// app.listen(8080, () => {
+//   console.log(`App listening on port 8080`);
+//   console.log('Press Ctrl+C to quit.');
+// });
