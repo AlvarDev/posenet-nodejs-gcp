@@ -1,0 +1,32 @@
+{
+  "name": "posenet-nodejs-gcp",
+  "version": "1.0.0",
+  "description": "A simple way to use Posenet on backend (NodeJS) using Cloud Functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlvarDev/posenet-nodejs-gcp.git"
+  },
+  "keywords": [
+    "gcp",
+    "tensorflowjs"
+  ],
+  "author": "AlvarDev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlvarDev/posenet-nodejs-gcp/issues"
+  },
+  "homepage": "https://github.com/AlvarDev/posenet-nodejs-gcp#readme",
+  "dependencies": {
+    "express": "4.17.1",
+    "body-parser": "1.19.0",
+    "tmp": "0.2.1",
+    "canvas": "2.6.1"
+  }
+}
