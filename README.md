@@ -34,7 +34,7 @@ Both issues has their own solution, build a detailed Dockerfile and use worker t
 
 That's it, a start for developers into the ML world.
 
-## *Code*
+## **Code**
 This API receives a _"gs://"_ path from Google Cloud Storage.
 I made it that way because Cloud Functions can be invoked indirectly in response to an [event](https://cloud.google.com/functions/docs/writing/background) from [Cloud Storage](https://cloud.google.com/functions/docs/writing/background#cloud-storage-example) or [Pub/Sub](https://cloud.google.com/functions/docs/writing/background#cloud-pubsub-example).
 
@@ -64,7 +64,4 @@ curl -X POST \
 deploy to Cloud Functions
 ```shell
 gcloud functions deploy app --runtime nodejs10 --trigger-http --allow-unauthenticated
-```
-
-
 ```
