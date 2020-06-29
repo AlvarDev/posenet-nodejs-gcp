@@ -5,10 +5,10 @@ Fortunately, **TensorFlow.js** has [ready-to-use](https://www.tensorflow.org/js/
 
 One of them is [**PoseNet**](https://github.com/tensorflow/tfjs-models/tree/master/posenet), a standalone model for running real-time pose estimation in the browser using TensorFlow.js. 
 
-For browser PoseNet works perfectly, the challenge comes when we want to us it on the backend, I made a simple API to use the model and I want to share with you a couple of issue I have to resolve in order to deploy the API on GCP. _**(complete source at the end of the post)**_
+For browser PoseNet works perfectly, the challenge comes when we want to us it on the backend, I made a simple API to use the model and I want to share with you a couple of issues that I had to resolve in order to deploy the API on GCP. _**(complete source at the end of the post)**_
 
 ### **TensorFlow vs Docker**
-Docker is a powerful tool. However, use TensorFlow.js on a docker is little bit harder, messages like _Your CPU supports instructions that this TensorFlow binary was not compiled to use..._ are very frequently in this scenery.  
+Docker is a powerful tool. However, use TensorFlow.js on a docker is little bit harder, messages like _Your CPU supports instructions that this TensorFlow binary was not compiled to use..._ are very frequently.  
 
 ### **Production considerations**
 [From documentation](https://www.tensorflow.org/js/guide/nodejs#production_considerations): The Node.js bindings provide a backend for TensorFlow.js that implements operations synchronously. That means when you call an operation, e.g. tf.matMul(a, b), it will block the main thread until the operation has completed.
@@ -17,7 +17,7 @@ For this reason, the bindings currently are well suited for scripts and offline 
 
 ## So... How to resolve this?
 
-Both issues has their own solution, build a detailed Dockerfile and use worker threads for example, but there is one resource that will resolve both with one shot:
+Both issues have their own solution, build a detailed Dockerfile and use worker threads for example, but there is one resource that will resolve both with one shot:
 ## [Cloud Functions](https://cloud.google.com/functions)
 
 1. Cloud Functions instances have already TensorFlow compiled. (One example that I found was  [_How to serve deep learning models using TensorFlow 2.0 with Cloud Functions_](https://cloud.google.com/blog/products/ai-machine-learning/how-to-serve-deep-learning-models-using-tensorflow-2-0-with-cloud-functions))
@@ -30,7 +30,7 @@ Both issues has their own solution, build a detailed Dockerfile and use worker t
 
 > And... yes, the request is going to be slower than running on a Kubernetes for example. But this solution is a **Quick win** for developers, we are using a **trained model** in a **Serverless** environment. 
 > Developers with no knowledge of ML can take advantage for this technology in an easy way.
-> For future posts I will use the other solution: detailed Dockerfile and worker threads. Be patients :).
+> For future posts I will use the other solutions: detailed Dockerfile and worker threads. Be patient :).
 
 That's it, a start for developers into the ML world.
 
@@ -47,7 +47,7 @@ app.listen(8080, () => {
 });
 ```
 
-and execute
+execute
 ```shell
 node index.js
 ```
